@@ -138,9 +138,9 @@ A horizontal rule follows.
 <b>SGD </b>       
         </td>
                 <td>
-<b>  \begin{align}
-    \eta & = 0.01
-      \end{align} </b>       
+<b>  $$
+    \eta & = 0.01$$
+       </b>       
         </td>
           <td>
 \begin{align}
@@ -216,13 +216,13 @@ s_t &= \rho s_{t-1} + (1-\rho)g_t^2
       \end{align} </b>       
         </td>
           <td>
-\begin{align}
+$$
    \beta_{t+1} &= \beta_{t} -  \eta\frac{1 }{\sqrt{\hat{s}_t  + \epsilon}}\hat{v}_t \\
     \hat{v}_t & = \frac{v_t}{ 1- \rho^t_1}\\
      \hat{s}_t & = \frac{s_t}{ 1- \rho^t_2}\\
 v_t & = \rho_1 v_{t-1} + (1-\rho_1)g_t\\
 s_t &= \rho_2 s_{t-1} + (1-\rho_2)g_t^2              
-\end{align}
+$$
         </td>
     </tr>
         <tr>
