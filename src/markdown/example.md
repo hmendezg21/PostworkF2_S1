@@ -99,180 +99,27 @@ doc](#an-h2-header). Here's a footnote [^1].
 
 Tables can look like this:
 
-Name           Size  Material      Color
-------------- -----  ------------  ------------
-<br>
-All Business      9  leather       brown
-Roundabout       10  hemp canvas   natural
-Cinderella       11  glass         transparent
+|Name         | Size | Material    | Color       |
+|-------------|------|-------------|-------------|
+|All Business | 9    | leather     | brown       |
+|Roundabout   | 10   | hemp canvas | natural     |
+|Cinderella   | 11   | glass       | transparent |
 
 Table: Shoes sizes, materials, and colors.
 
 (The above is the caption for the table.) Pandoc also supports
 multi-line tables:
 
---------  -----------------------
-Keyword   Text
---------  -----------------------
-red       Sunsets, apples, and
-other red or reddish
-things.
+  
+| Keyword |Text|  
+|---------|-----------------------|
+| red     |Sunsets, apples, and other red or reddish things.|
+| green   |  Leaves, grass, frogs and other things it's not easy being.|
 
-green     Leaves, grass, frogs
-and other things it's
-not easy being.
---------  -----------------------
 
 A horizontal rule follows.
 
 ***
-
-<table style  = "width:100%; border: 1px solid black; "   >
-  <tr style=" border: 1px solid black; background-color: #f1f1c1;">
-    <th>Algorithm</th>
-    <th>Parameters</th>
-    <th>Update formula</th> 
-  </tr>
-  <tr >
-        <td>
-<b>SGD </b>       
-        </td>
-                <td>
-<b>  $$
-    \eta & = 0.01$$
-       </b>       
-        </td>
-          <td>
-\begin{align}
-   \beta_{t+1} & = \beta_{t} -  \eta v_t   \\
-v_t & =  g_t
-\end{align}
-        </td>
-    </tr>   
-        <tr>
-        <td>
-<b>Momentum   </b>       
-        </td>        
-            <td>
-<b>
-    \begin{align}
-    \eta & = 0.01\\
-    \rho & = 0.0
-      \end{align}               
-                </b>       
-        </td>
-          <td>
-\begin{align}
-   \beta_{t+1} & = \beta_{t} -  \eta v_t   \\
-v_t & = \rho v_{t-1} + (1-\rho) g_t
-\end{align}
-        </td>
-    </tr> 
-     <tr>
-        <td>
-<b>AdaGrad </b>        
-        </td>
-                 <td>
-<b>\begin{align}
-    \eta & = 0.01\\
-    \epsilon & = 10^{-7}
-      \end{align}</b>       
-        </td>
-          <td>
-\begin{align}
-   \beta_{t+1} &= \beta_{t} - \eta \frac{1}{\sqrt{s_t + \epsilon}}g_t  \\
-s_t &=  s_{t-1} + g_t^2
-\end{align}
-        </td>
-    </tr>
-            <tr>
-        <td>
-<b>RMSProp </b>        
-        </td>
-                 <td>
-<b>\begin{align}
-    \eta & = 0.001\\
-    \rho & = 0.9\\
-    \epsilon & = 10^{-8}
-      \end{align}</b>       
-        </td>
-          <td>
-\begin{align}
-   \beta_{t+1} &= \beta_{t} - \eta \frac{1}{\sqrt{s_t + \epsilon}}g_t  \\
-s_t &= \rho s_{t-1} + (1-\rho)g_t^2
-\end{align}
-        </td>
-    </tr>
-    <tr>
-        <td>
-<b> Adam     </b>     
-        </td>
-         <td>
-<b>\begin{align}
-    \eta & = 0.001\\
-    \rho_1 & = 0.9\\
-    \rho_2 & = 0.999\\
-    \epsilon & = 10^{-8}
-      \end{align} </b>       
-        </td>
-          <td>
-$$
-   \beta_{t+1} &= \beta_{t} -  \eta\frac{1 }{\sqrt{\hat{s}_t  + \epsilon}}\hat{v}_t \\
-    \hat{v}_t & = \frac{v_t}{ 1- \rho^t_1}\\
-     \hat{s}_t & = \frac{s_t}{ 1- \rho^t_2}\\
-v_t & = \rho_1 v_{t-1} + (1-\rho_1)g_t\\
-s_t &= \rho_2 s_{t-1} + (1-\rho_2)g_t^2              
-$$
-        </td>
-    </tr>
-        <tr>
-        <td>
-<b> Nadam     </b>     
-        </td>
-             <td>
-<b>\begin{align}
-     \eta & = 0.002\\
-    \rho_1 & = 0.9\\
-    \rho_2 & = 0.999\\
-    \epsilon & = 10^{-7}
-      \end{align} </b>       
-        </td>
-          <td>
-\begin{align}
-   \beta_{t+1} &= \beta_{t} -  \eta\frac{1}{\sqrt{\hat{s}_t  + \epsilon}}\tilde{v}_t  \\
-    \tilde{v}_t & = \rho_1  \hat{v}_{t-1} + \frac{1-\rho_1}{1-\rho^t_1}g_t\\
-    \hat{v}_t & = \frac{v_t}{ 1- \rho^t_1}\\
-     \hat{s}_t & = \frac{s_t}{ 1- \rho^t_2}\\
-v_t & = \rho_1 v_{t-1} + (1-\rho_1)g_t\\
-s_t &= \rho_2 s_{t-1} + (1-\rho_2)g_t^2              
-\end{align}
-        </td>
-    </tr>
-    <tr>
-        <td>
-<b> AMSGrad    </b>     
-        </td>
-         <td>
-<b>\begin{align}
-     \eta & = 0.001\\
-    \rho_1 & = 0.9\\
-    \rho_2 & = 0.999\\
-    \epsilon & = 10^{-7}
-      \end{align}  </b>       
-        </td>
-          <td>
-\begin{align}
-   \beta_{t+1} &= \beta_{t} -  \eta\frac{{v}_t }{\sqrt{\hat{s}_t  + \epsilon}} \\
-     \hat{s}_t & = \max\{\hat{s}_{t-1},s_t\}\\
-v_t & = \rho_1 v_{t-1} + (1-\rho_1)g_t\\
-s_t &= \rho_2 s_{t-1} + (1-\rho_2)g_t^2              
-\end{align}
-        </td>
-    </tr>
-</table> 
-
-
-
 
 Here's a definition list:
 
@@ -290,9 +137,9 @@ term and  its definition to spread things out more.)
 
 Here's a "line block" (note how whitespace is honored):
 
-| Line one
-|   Line too
-| Line tree
+&nbsp;Line one<br>
+&nbsp;&nbsp;&nbsp;Line too<br>
+&nbsp;Line tree<br>
 
 and images can be specified like so:
 
